@@ -3,98 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-mQ93fQ7MAe6H4XgJkRfnpJmSx0BzlfA59Y2zZ6N2yCg8BHYVFhWITB6kQXrMW3Sb" crossorigin="anonymous">
+    <title>Indian Language Knowledge System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f7f6;
-            font-family: Arial, sans-serif;
-            padding: 20px; /* Added padding to the body */
+            background-color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Space for fixed header */
+            padding-bottom: 60px; /* Space for fixed footer */
         }
-        .container {
-            margin-top: 50px;
+
+        /* Fixed Header */
+        header {
+            background-color: #001f3f;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        .card {
-            border: none;
-            transition: transform 0.3s;
-            cursor: pointer;
-            margin: 10px; /* Added margin between cards */
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
         }
-        .card:hover {
+
+        header p {
+            font-size: 1em;
+            margin: 5px 0 0;
+        }
+
+        /* Fixed Footer */
+        footer {
+            background-color: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Tool Card Styling */
+        .tool-card {
+            background-color: #f9f9f9;
+            border: 2px solid #001f3f;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            height: 300px; /* Set a fixed height for cards */
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
             transform: scale(1.05);
         }
-        .card img {
-            border-radius: 15px 15px 0 0;
-            height: 200px; /* Adjust height as per your requirement */
-            object-fit: cover; /* Ensure images fit within the container */
+
+        .tool-card h2 {
+            color: #001f3f;
+            font-size: 1.5em;
         }
-        .card-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
+
+        /* Scrollable description box */
+        .tool-description {
+            font-size: 1em;
+            overflow-y: auto;
+            max-height: 100px; /* Limit height to create a scroll bar if text overflows */
+            padding-right: 10px; /* Add padding for scrollbar space */
         }
-        .card-body {
-            background-color: #ffffff;
-            border-radius: 0 0 15px 15px;
-            padding: 20px; /* Added padding to the card body */
+
+        .btn-use-tool {
+            background-color: #001f3f;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
         }
-        .row {
-            display: flex;
-            justify-content: space-around; /* Changed to space-around for better spacing */
-            flex-wrap: wrap; /* Allow wrapping */
+
+        .btn-use-tool:hover {
+            background-color: #004080;
+            color: white;
         }
-        .col-md-6 {
-            flex: 0 0 auto;
-            width: 30%; /* Adjusted to fit 3 cards nicely */
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .tool-card {
+                flex: 0 1 calc(50% - 10px); /* 2 columns for medium devices */
+            }
         }
+
+        @media (max-width: 576px) {
+            .tool-card {
+                flex: 0 1 100%; /* 1 column for small devices */
+            }
+        }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="row text-center">
-        <!-- AI Tool 1 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100">
-                <img src="tts.png" alt="AI Tool 1" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Text to Speech</h5>
-                    <p class="card-text">jdhfjsd jhjhjhjh jhjhjhj.</p>
-                    <button onclick="navigateToTool('https://texttospeech-1-wqkt.onrender.com')" class="btn btn-primary">Go to Tool 1</button>
+    <!-- Fixed Header Section -->
+    <header>
+        <h1>Indian Language Knowledge System</h1>
+        <p>Your gateway to advanced language tools for Indian languages.</p>
+    </header>
+
+    <!-- Main Section with Tool Cards -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Tool 1 -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="tool-card text-center">
+                    <h2>Tool 1</h2>
+                    <div class="tool-description">
+                        An analysis tool for Sanskrit grammar elements like nouns, verbs, and more. This tool helps you understand the complex structures of Sanskrit texts by breaking down different grammatical rules and elements.
+                    </div>
+                    <a href="#" class="btn btn-use-tool mt-2">Use the tool</a>
                 </div>
             </div>
-        </div>
-        <!-- AI Tool 2 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100">
-                <img src="Tran.jfif" alt="AI Tool 2" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Translator</h5>
-                    <p class="card-text">kkjkjk kjkjkj kjkjkj.</p>
-                    <button onclick="navigateToTool('https://translator-jq06.onrender.com/')" class="btn btn-primary">Go to Tool 2</button>
+
+            <!-- Tool 1 -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="tool-card text-center">
+                    <h2>Tool 1</h2>
+                    <div class="tool-description">
+                        An analysis tool for Sanskrit grammar elements like nouns, verbs, and more. This tool helps you understand the complex structures of Sanskrit texts by breaking down different grammatical rules and elements.
+                    </div>
+                    <a href="#" class="btn btn-use-tool mt-2">Use the tool</a>
                 </div>
             </div>
-        </div>
-        <!-- AI Tool 3 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100">
-                <img src="Sansml.png" alt="AI Tool 3" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Sanskrit to Malayalam</h5>
-                    <p class="card-text">jhjhj jhjhjh iuiuiu.</p>
-                    <button onclick="navigateToTool('https://sanskrit-malayalam-corpus-1.onrender.com')" class="btn btn-primary">Go to Tool 3</button>
+
+            <!-- Tool 1 -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="tool-card text-center">
+                    <h2>Sanskrit to Malayalam Translator and Parsing for Hindi</h2>
+                    <div class="tool-description">
+                        by breaking down different grammatical rules and elements.
+                    </div>
+                    <a href="#" class="btn btn-use-tool mt-2">Use the tool</a>
                 </div>
             </div>
+
+            <!-- Tool 2 -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="tool-card text-center">
+                    <h2>Tool 2</h2>
+                    <div class="tool-description">
+                        Convert written Malayalam text into speech using this tool. Whether you are learning the language or need to assist with pronunciation, this tool is a great companion for helping you read and speak Malayalam.
+                    </div>
+                    <a href="#" class="btn btn-use-tool mt-2">Use the tool</a>
+                </div>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="tool-card text-center">
+                    <h2>Tool 3</h2>
+                    <div class="tool-description">
+                        A powerful translator tool for converting Indian languages to English and vice versa. This tool supports multiple languages and helps bridge the language gap efficiently by using advanced translation algorithms and real-time processing.
+                    </div>
+                    <a href="#" class="btn btn-use-tool mt-2">Use the tool</a>
+                </div>
+            </div>
+
+            <!-- More tools can be added here, and they will align properly -->
         </div>
     </div>
-</div>
 
-<script>
-    function navigateToTool(url) {
-        window.location.href = url;
-    }
-</script>
+    <!-- Fixed Footer Section -->
+    <footer>
+        <p>&copy; 2024 Indian Language Knowledge System. All rights reserved.</p>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-4IYIEv1ykIYZzKoMCgClZ08GspGvL5lE1S5ZvbqIXg3gGe2/bEdwBbd8DYPS8pgI" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
